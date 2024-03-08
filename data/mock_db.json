@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "id": "asf13rdsf",
+        "recipe": {    
+            "recipeName": "mushroom omelet",
+            "ingredients": "Eggs, sausage, potato, mushrooms",
+            "time": "40 minutes",
+            "process": "Clean the potatoes, and fry everthing together. At the end, sprincle some salt, too."
+        }
+    }
+
+]
