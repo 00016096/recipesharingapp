@@ -11,6 +11,18 @@ const recipe_controller = {
             recipe_service.create(req, res)
         )
     },
+
+    update(req, res) {
+        const recipe = recipe_service.update(req.params.id, req.body)
+        
+        if (recipe) {
+            res.json(recipe)
+        } else {
+            res.status(404).send('Recipe not found')
+        }
+    },
+
+
     delete(req, res) {
         const recipe = recipe_service.getById(req.params.id)
         

@@ -26,6 +26,21 @@ const recipe_service = {
         return new_recipe
 
     },
+
+    update(id, updateData){
+        const recipeIndex = recipes.findIndex(t => t.id == id)
+
+        if (recipeIndex === -1) {
+            return null
+        }
+
+        recipes[recipeIndex].recipe = { ...recipes[recipeIndex].recipe, ...updateData }
+
+        writeToFile(recipes)
+
+        return recipes[recipeIndex]
+    },
+
     delete(id) {
         const index = recipes.findIndex(u => u.id == id)
         recipes.splice(index, 1)    
