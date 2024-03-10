@@ -7,6 +7,9 @@ const recipe_service = {
     getAll() {
         return recipes
     },
+    getById(id) {
+            return recipes.find(r => r.id == id)
+        },   
     create(req, res) {
         let new_id = genRandId(4)
                 
@@ -22,6 +25,11 @@ const recipe_service = {
         
         return new_recipe
 
+    },
+    delete(id) {
+        const index = recipes.findIndex(u => u.id == id)
+        recipes.splice(index, 1)    
+        writeToFile(recipes)
     }
 }
 

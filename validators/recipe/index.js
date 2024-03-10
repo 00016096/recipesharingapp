@@ -1,4 +1,5 @@
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
+const recipe_service = require('../../services/recipe')
 
 const addRecipeValidation = () => {
   return [
@@ -16,6 +17,20 @@ const addRecipeValidation = () => {
   ];
 };
 
-module.exports = {
-    addRecipeValidation
+const deleteRecipeValidation = () => {
+  return [
+    param('id').custom(async (id) => {
+      const exists = await recipe_service.getById(id);
+      if (!exists) {
+        throw new Error('Recipe not found');
+      }
+    })
+  ];
 };
+
+module.exports = {
+    addRecipeValidation,
+    deleteRecipeValidation
+};
+
+

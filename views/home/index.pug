@@ -17,7 +17,7 @@ script.
           .then(function(response) {
             const recipes = response.data;
             const tableBody = document.querySelector('table tbody');
-            recipes.forEach(r => {
+            recipes.forEach( r => {
               const row = document.createElement('tr');
               const recipe = r.recipe
               row.innerHTML = `
@@ -27,8 +27,8 @@ script.
                 <td>${recipe.time}</td>
                 <td>${recipe.process}</td>
                 <td>
-                  <button class="btn btn-primary btn-sm">Edit</button>
-                  <button class="btn btn-danger btn-sm">Delete</button>
+                <button class="btn btn-primary btn-sm">Edit</button>
+                  <button class="btn btn-danger btn-sm" data-id="${r.id}">Delete</button>
                 </td>
               `;
               tableBody.appendChild(row);
@@ -36,5 +36,19 @@ script.
           })
           .catch(function(error) {
             console.log(error);
+          });
+
+          // Use event delegation for delete buttons
+          document.addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('btn-danger')) {
+              const recipeId = event.target.getAttribute('data-id');
+              axios.delete(`/api/recipe/${recipeId}`).then(function(response) {
+                console.log('Delete successful', response);
+                location.href = '/'
+              })
+              .catch(function(error) {
+                console.log('Error deleting recipe', error);
+              });
+            }
           });
       });
