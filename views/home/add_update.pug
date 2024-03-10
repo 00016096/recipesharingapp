@@ -1,35 +1,18 @@
 include ../head.pug
 body
     .container.mt-5
-      h1 Add/Update Event
-      form(action="/submit-event-form" method="POST")
+      h1 Add/Update Recipe
+      form(action="/submit-recipe-form" method="POST")
         .mb-3
-          label(for="eventName" class="form-label") Event Name
-          input(type="text" class="form-control" id="eventName" name="eventName" required)
+          label(for="recipeName" class="form-label") Recipe Name
+          input(type="text" class="form-control" id="recipeName" name="recipeName" required)
         .mb-3
-          label(for="eventDateTime" class="form-label") Event Date/Time
-          .input-group.date(id="datetimepicker1" data-target-input="nearest")
-            input(type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="eventDateTime" required)
-            .input-group-append(data-target="#datetimepicker1" data-toggle="datetimepicker")
-              .input-group-text
-                i.fas.fa-calendar-alt
+          label(for="ingredients" class="form-label") Ingredients
+          input(type="text" class="form-control" id="ingredients" name="ingredients" required)
         .mb-3
-          label(for="venue" class="form-label") Venue
-          input(type="text" class="form-control" id="venue" name="venue" required)
+          label(for="time" class="form-label") Time
+          input(type="int" class="form-control" id="time" name="time" required)
         .mb-3
-          label(for="contactPhone" class="form-label") Contact Phone
-          input(type="tel" class="form-control" id="contactPhone" name="contactPhone" required)
-        .mb-3
-          label(for="seat" class="form-label") Seat
-          input(type="text" class="form-control" id="seat" name="seat" required)
+          label(for="process" class="form-label") Process
+          input(type="text" class="form-control" id="process" name="process" required)
         button(type="submit" class="btn btn-primary") Add/Edit
-
-    script.
-        const picker = new tempusDominus.TempusDominus(document.getElementById('datetimepicker1'),{
-            localization: {
-                'locale': 'fr'
-            }
-        });
-        picker.dates.formatInput = function(date) {
-            return moment(date).format('DD/MM/YYYY HH:mm')
-        }

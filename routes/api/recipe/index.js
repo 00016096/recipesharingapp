@@ -17,7 +17,7 @@ router.post('/', addRecipeValidation(), (req, res)=>{
       return res.status(400).json({ errors: errors.array() });
     }
 
-    ticket_controller.create(req, res)
+    recipe_controller.create(req, res)
 })
 
 module.exports = router;
