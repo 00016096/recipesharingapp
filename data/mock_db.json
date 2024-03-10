@@ -1,28 +1,10 @@
 [
     {
-        "id": "qeOj",
-        "recipe": {
-            "recipeName": "French water",
-            "ingredients": "breaaaaddd ",
-            "time": "45 minuts",
-            "process": "you first cook and then finally eat"
-        }
-    },
-    {
         "id": "bFHk",
         "recipe": {
             "recipeName": "Uzbek Water",
             "ingredients": "water and salt",
             "time": "33",
-            "process": "you first cook and then finally eat"
-        }
-    },
-    {
-        "id": "zxbm",
-        "recipe": {
-            "recipeName": "French water",
-            "ingredients": "breaaaaddd ",
-            "time": "45 minuts",
             "process": "you first cook and then finally eat"
         }
     },
