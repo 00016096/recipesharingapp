@@ -27,6 +27,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', api_route); // API routes
 app.use('/', web_route); // web routes
 
+//Vercel deployment
+app.get("/", (req, res) => {
+    res.send("Express on Vercel");  
+  });
 // redirect to home page if unknown requests requested
 app.use((req, res) => {
     res.redirect('/');
@@ -34,3 +38,6 @@ app.use((req, res) => {
 
 const port = 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
+
+// Export the Express API
+module.exports = app;
